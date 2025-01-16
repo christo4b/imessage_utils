@@ -19,9 +19,9 @@ pip install imessage_utils
 
 ### Python API
 ```python
-from mac_messages import MessageSender
+from imessage_utils import IMessageSender
 
-sender = MessageSender()
+sender = IMessageSender()
 
 # Try iMessage with SMS fallback
 success = sender.send("+1234567890", "Hello!")
@@ -61,4 +61,4 @@ python test_usage.py --imessage-only "+1234567890" "Hello via iMessage"
 
 ## License
 
-MIT License
+Apache 2.0

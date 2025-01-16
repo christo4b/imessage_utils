@@ -1,11 +1,11 @@
 import pytest
 from unittest.mock import patch, mock_open
-from mac_messages.sender import MessageSender
-from mac_messages.exceptions import ScriptError
+from imessage_utils.sender import IMessageSender
+from imessage_utils.exceptions import ScriptError
 
 @pytest.fixture
 def sender():
-    return MessageSender()
+    return IMessageSender()
 
 def test_run_applescript_success(sender):
     script = 'tell application "Messages" to return "test"'

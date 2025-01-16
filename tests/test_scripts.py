@@ -1,4 +1,8 @@
-from mac_messages.scripts import IMESSAGE_SEND, SMS_SEND, CHECK_STATUS
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from imessage_utils.scripts import IMESSAGE_SEND, SMS_SEND, CHECK_STATUS
 
 def test_script_formatting():
     phone = "1234567890"

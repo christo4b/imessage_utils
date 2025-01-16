@@ -1,4 +1,4 @@
-from mac_messages import MessageSender
+from imessage_utils import IMessageSender
 import argparse
 import logging
 import sys
@@ -18,7 +18,7 @@ def parse_args():
 
 def main():
    args = parse_args()
-   sender = MessageSender()
+   sender = IMessageSender()
 
    if args.sms_only:
        success = sender.send_sms(args.phone, args.message)

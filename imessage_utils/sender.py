@@ -2,12 +2,12 @@ import os
 import logging
 from time import sleep
 from typing import Tuple
-from .exceptions import MessageError, DeliveryError, ScriptError
+from .exceptions import ScriptError
 from .scripts import IMESSAGE_SEND, SMS_SEND, CHECK_STATUS
 
 logger = logging.getLogger(__name__)
 
-class MessageSender:
+class IMessageSender:
     """Handles sending messages via iMessage and SMS on macOS."""
 
     def __init__(self, script_path: str = '/tmp/message.applescript'):
@@ -71,5 +71,5 @@ class MessageSender:
 
 def send_message(phone: str, msg: str) -> bool:
     """Convenience function to send a message."""
-    sender = MessageSender()
+    sender = IMessageSender()
     return sender.send(phone, msg)
