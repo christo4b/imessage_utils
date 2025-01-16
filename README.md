@@ -12,23 +12,40 @@ A Python package for sending messages through the macOS Messages app.
 ## Installation
 
 ```bash
-pip install imessage_utils
+pip install mac-messages
 ```
 
 ## Usage
 
+### Python API
 ```python
-from mac_messages import send_message
-
-# Simple usage
-success = send_message("+1234567890", "Hello!")
-
-# Advanced usage
 from mac_messages import MessageSender
 
 sender = MessageSender()
-if sender.send_imessage("+1234567890", "Hello via iMessage!"):
-    print("iMessage sent successfully")
+
+# Try iMessage with SMS fallback
+success = sender.send("+1234567890", "Hello!")
+
+# SMS only
+success = sender.send_sms("+1234567890", "Hello via SMS!")
+
+# iMessage only
+success = sender.send_imessage("+1234567890", "Hello via iMessage!")
+```
+
+### Command Line
+```bash
+# Install locally
+pip install -e .
+
+# Normal send (tries iMessage, falls back to SMS)
+python test_usage.py "+1234567890" "Hello world"
+
+# SMS only
+python test_usage.py --sms-only "+1234567890" "Hello via SMS"
+
+# iMessage only
+python test_usage.py --imessage-only "+1234567890" "Hello via iMessage"
 ```
 
 ## Requirements
@@ -44,4 +61,4 @@ if sender.send_imessage("+1234567890", "Hello via iMessage!"):
 
 ## License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+MIT License
