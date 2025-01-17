@@ -12,7 +12,7 @@ A Python package for sending messages through the macOS Messages app.
 ## Installation
 
 ```bash
-pip install imessage_utils
+pip install git+https://github.com/christo4b/imessage_utils.git
 ```
 
 ## Usage
